@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find bison_description)/urdf/bison_robot.xacro'" />
+  <node name="mecanum_controller" pkg="bison_driver" type="mecanum_controller.py" output="screen"/>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find bison_description)/urdf/bison_robot.xacro'" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" />
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization" respawn="true">
+    <rosparam command="load" file="$(find bison_driver)/config/localization.yaml" />
+  </node>
+
+   <include file="$(find teleop_twist_joy)/launch/teleop.launch" />
+   <include file="$(find imu_node)/launch/imu_node.launch" />
+
+</launch>

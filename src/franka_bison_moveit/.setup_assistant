@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: bison_description
+    relative_path: urdf/bison_robot.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/bison.srdf
+  CONFIG:
+    author_name: test
+    author_email: test@test.com
+    generated_timestamp: 1573716563

@@ -1,0 +1,8 @@
+<launch>
+
+  <!-- start arduimu_ros node -->
+  <node pkg="imu_node" type="imu_brick_node" name="imu_driver" output="screen" >
+    <param name="uid" value="69DTJq"/>
+  </node>
+
+</launch>
